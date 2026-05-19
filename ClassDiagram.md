@@ -16,11 +16,11 @@ classDiagram
     }
 
     class 전사 {
-        +int 스킬발동_검휘두르기()
+        +int 스킬발동()
     }
 
     class 마법사 {
-        +int 스킬발동_파이어볼()
+        +int 스킬발동()
     }
 
     class 전투 {
