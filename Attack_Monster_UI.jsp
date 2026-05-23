@@ -26,7 +26,7 @@ body {
 .box {
 	background-color: #ffffff;
 	border: 1px solid #e1e4e6;
-	border-top: 5px solid #ef4444; /* 전투 느낌의 포인트 컬러 */
+	border-top: 5px solid #ef4444; 
 	padding: 30px;
 	border-radius: 12px;
 	width: 100%;
@@ -60,7 +60,7 @@ p {
 </head>
 <body>
 	<div class="box">
-		<h3>📢 실시간 전투 로그</h3>
+		<h3> 실시간 전투 로그</h3>
 		<p>
 			<%=전투결과%>
 		</p>

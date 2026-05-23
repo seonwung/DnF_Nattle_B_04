@@ -2,18 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="DnF.*"%>
 <%
-	// 한글 깨짐 방지
+
 	request.setCharacterEncoding("UTF-8");
 
-	// Form에서 넘어온 파라미터 받기
+	
 	String 플레이어id = request.getParameter("playerId");
 	String 캐릭터명 = request.getParameter("charName");
 	String 직업 = request.getParameter("job");
 	String levelStr = request.getParameter("level");
 
 	캐릭터 character = null;
-	boolean isSubmitted = (플레이어id != null && !플레이어id.isEmpty()); // 폼 제출 여부 확인
-
+	boolean isSubmitted = (플레이어id != null && !플레이어id.isEmpty()); 
 	if (isSubmitted) {
 		int 레벨 = 1;
 		if (levelStr != null && !levelStr.isEmpty()) {
@@ -23,7 +22,6 @@
 		전투 battle = new 전투();
 		character = battle.캐릭터생성(플레이어id, 캐릭터명, 직업, 레벨);
 
-		// 다음 페이지(몬스터공격)에서 사용하기 위해 세션에 저장
 		if (character != null) {
 			session.setAttribute("myDnFCharacter", character);
 		}
@@ -175,7 +173,7 @@ a.btn-link:hover {
 </head>
 <body>
 	<div class="box">
-		<h3>⚔️ 던파 모험가 생성</h3>
+		<h3>던파 모험가 생성</h3>
 		<form method="POST" action="Create_Character_UI.jsp">
 			<div class="form-group">
 				<label>플레이어 ID</label> <input type="text" name="playerId"
@@ -203,19 +201,19 @@ a.btn-link:hover {
 		if (isSubmitted) {
 	%>
 	<div class="box" style="border-left: 5px solid #3b82f6;">
-		<h3 style="color: #3b82f6; border-bottom: none; margin-bottom: 15px;">✨
+		<h3 style="color: #3b82f6; border-bottom: none; margin-bottom: 15px;">
 			캐릭터 생성 정보 확인</h3>
 		<p>
-			<span class="info-label">• 플레이어 ID:</span>
+			<span class="info-label">플레이어 ID:</span>
 			<%=플레이어id%></p>
 		<p>
-			<span class="info-label">• 캐릭터 이름:</span>
+			<span class="info-label">캐릭터 이름:</span>
 			<%=캐릭터명%></p>
 		<p>
-			<span class="info-label">• 선택한 직업:</span>
+			<span class="info-label">선택한 직업:</span>
 			<%=직업%></p>
 		<p>
-			<span class="info-label">• 현재 레벨:</span>
+			<span class="info-label">현재 레벨:</span>
 			<%=levelStr%>
 			Lv
 		</p>
@@ -225,24 +223,24 @@ a.btn-link:hover {
 		%>
 		<p
 			style="color: #10b981; font-size: 1.1em; margin-top: 15px; font-weight: bold;">
-			🎉 모험가 등록이 성공적으로 완료되었습니다!</p>
+			 모험가 등록이 성공적으로 완료되었습니다!</p>
 		<hr style="border: 0; border-top: 1px solid #e1e4e6; margin: 15px 0;">
 
 		<h4>[ 생성 완료된 능력치 정보 ]</h4>
 		<p>
-			<span class="info-label">• 최대 HP:</span>
+			<span class="info-label"> 최대 HP:</span>
 			<%=character.getHP()%></p>
 		<p>
-			<span class="info-label">• 기본 공격력:</span>
+			<span class="info-label"> 기본 공격력:</span>
 			<%=character.get공격력()%></p>
 
-		<a href="Attack_Monster_UI.jsp" class="btn-link">⚔️ 던전 입장 (몬스터
+		<a href="Attack_Monster_UI.jsp" class="btn-link">⚔던전 입장 (몬스터
 			공격하기)</a>
 		<%
 			} else {
 		%>
 		<hr style="border: 0; border-top: 1px solid #e1e4e6; margin: 15px 0;">
-		<p style="color: #ef4444; font-weight: bold;">❌ 캐릭터 생성에 실패했습니다.
+		<p style="color: #ef4444; font-weight: bold;">캐릭터 생성에 실패했습니다.
 			(플레이어 ID가 'hero'가 맞는지 확인해 주세요.)</p>
 		<%
 			}
