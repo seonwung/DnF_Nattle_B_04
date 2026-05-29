@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
 
     class 플레이어 {
@@ -43,3 +44,4 @@ classDiagram
 
     전투 --> 플레이어 : 플레이어체크
     전투 --> 캐릭터 : 생성/공격
+    ```
