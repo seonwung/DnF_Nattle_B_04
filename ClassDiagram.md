@@ -1,31 +1,30 @@
-```mermaid
 classDiagram
 
     class 플레이어 {
-        -String 플레이어Id
-        +boolean 플레이어체크(String 플레이어Id)
+        -플레이어Id
+        +플레이어체크(플레이어Id)
     }
 
     class 캐릭터 {
         <<abstract>>
-        -String 캐릭터명
-        -int 레벨
-        -int HP
-        -int 공격력
-        +int 스킬발동()
+        -캐릭터명
+        -레벨
+        -HP
+        -공격력
+        +스킬발동()
     }
 
     class 전사 {
-        +int 스킬발동()
+        +스킬발동()
     }
 
     class 마법사 {
-        +int 스킬발동()
+        +스킬발동()
     }
 
     class 전투 {
-        +void 캐릭터생성()
-        +void 몬스터공격()
+        +캐릭터생성(플레이어Id, 캐릭터명, 직업, 레벨)
+        +몬스터공격()
     }
 
     class Create_Character_UI {
@@ -39,9 +38,8 @@ classDiagram
     전사 --|> 캐릭터 : 상속
     마법사 --|> 캐릭터 : 상속
 
-    Create_Character_UI --> 전투
-    Attack_Monster_UI --> 전투
+    Create_Character_UI --> 전투 : 캐릭터생성 요청
+    Attack_Monster_UI --> 전투 : 몬스터공격 요청
 
-    전투 --> 플레이어
-    전투 --> 캐릭터
-```
+    전투 --> 플레이어 : 플레이어체크
+    전투 --> 캐릭터 : 생성/공격
