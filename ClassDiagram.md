@@ -2,38 +2,38 @@
 classDiagram
 
     class 플레이어 {
-        +플레이어체크(플레이어id)
+        +플레이어체크(플레이어id String) boolean
     }
 
     class 캐릭터 {
         <<abstract>>
-        #캐릭터명
-        #레벨
-        #HP
-        #공격력
-        +스킬발동()
-        +get스킬명()
-        +get캐릭터명()
-        +get레벨()
-        +getHP()
-        +get공격력()
+        #캐릭터명 String
+        #레벨 int
+        #HP int
+        #공격력 int
+        +스킬발동() int
+        +get스킬명() String
+        +get캐릭터명() String
+        +get레벨() int
+        +getHP() int
+        +get공격력() int
     }
 
     class 전사 {
-        +전사(캐릭터명, 레벨)
-        +스킬발동()
-        +get스킬명()
+        +전사(캐릭터명 String, 레벨 int)
+        +스킬발동() int
+        +get스킬명() String
     }
 
     class 마법사 {
-        +마법사(캐릭터명, 레벨)
-        +스킬발동()
-        +get스킬명()
+        +마법사(캐릭터명 String, 레벨 int)
+        +스킬발동() int
+        +get스킬명() String
     }
 
     class 전투 {
-        +캐릭터생성(플레이어id, 캐릭터명, 직업, 레벨)
-        +몬스터공격(플레이어id, character)
+        +캐릭터생성(플레이어id String, 캐릭터명 String, 직업 String, 레벨 int) 캐릭터
+        +몬스터공격(플레이어id String, character 캐릭터) String
     }
 
     class Create_Character_UI {
