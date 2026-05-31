@@ -234,7 +234,7 @@ a.btn-link:hover {
 			<span class="info-label"> 기본 공격력:</span>
 			<%=character.get공격력()%></p>
 
-		<a href="Attack_Monster_UI.jsp" class="btn-link">⚔던전 입장 (몬스터
+		<a href="Attack_Monster_UI.jsp" class="btn-link">던전 입장 (몬스터
 			공격하기)</a>
 		<%
 			} else {
